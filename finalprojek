@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pendaftaran Calon Penghuni Asrama Putra UAD 2020</title>
+	<style type="text/css">
+		.container{
+			width: 700px;
+			height: 865px;
+			background-color: lavender;
+			margin: auto;
+		}
+		.container1{
+			background: linear-gradient(to right,lightblue, green)
+		}
+		.bawah{
+			width: 700px;
+			height: 25px;
+			background-color: black;
+		}
+		.footerr{
+			font-size: 10px;
+			color: white;
+			text-align: center;
+
+		}
+		.rata{
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body class="container1">
+<div class="container">
+	<form action="validasi.php" method="post">
+		<pre class="rata">
+		Nama lengkap		:<input type="text" name="nama" size="50" id="nama">
+		
+		<br>
+		lahir				:<input type="text" name="lahir" size="50" id="lahir"></pre>
+		
+		<br>
+		<pre class="rata">
+		Nama Ayah			:<input type="text" name="ayah" size="20" id="ayah">
+		<br>
+		Nama Ibu			:<input type="text" name="ibu" size="20" id="ibu">
+		
+		</pre><br>
+		<pre class="rata">
+		No Handphone wali	:<input type="text" name="nohape" size="12" id="nohape">
+		
+		<br>
+		Email				:<input type="Email" name="email" size="30" id="email">
+	
+		</pre><br>
+		<pre class="rata">
+		Pendidikan Terakhir 	:<select name="pendidikan" id="pendidikan">
+							<option value="SMA">SMA</option>
+							<option value="Pondok Pesantren">Pondok Pesantren</option>
+							<option value="Madrasah Aliyah">Madrasah Aliyah</option>
+							<option value="SMK">SMK</option>
+		</select>
+		
+		<br><br>
+		Jurusan Kuliah		:<input type="text" name="jurusan" size="50" id="jurusan">
+		
+		<br>
+		Program Study		:<input type="text" name="prodi" size="50" id="prodi">
+		
+		<br><br>
+		Motivasi Masuk 
+		Asrama				 :<textarea name="motivasi" id="motivasi"></textarea>
+		
+		</pre><br><br>
+		<input type="submit" name="kirim" value="Kirim">
+		<input type="reset" name="reset" value="Hapus">
+	</form>
+	<footer class="bawah">
+			<font class="footerr"><center>Created by @Muhammad Fajrul Falaq</center></font>
+	</footer>
+</div>
+</body>
+</html>
+
+
+//validasi.php
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<div>
+<?php
+	echo "<head><title>Validasi variabel</title></head>";
+	$fp = fopen("datapendaftar.txt","a+");
+	$nama = $_POST['nama'];
+	$lahir = $_POST['lahir'];
+	$ayah = $_POST['ayah'];
+	$ibu = $_POST['ibu'];
+	$nohape = $_POST['nohape'];
+	$email = $_POST['email'];
+	$pendidikan = $_POST['pendidikan'];
+	$jurusan = $_POST['jurusan'];
+	$prodi = $_POST['prodi'];
+	$motivasi = $_POST['motivasi'];
+
+	fputs($fp,"$nama|$lahir|$ayah|$ibu|$nohape|$email|$pendidikan|$jurusan|$prodi|$motivasi\n");
+	fclose($fp);
+	echo "<center>Data sudah kami terima sebagai Calon penghuni asrama putra UAD 2020</center>";
+	echo "<center>Terima kasih</center>";
+?>
+<a href="index.html">Kembali ke halaman Awal</a>
+</div>
+</body>
+</html>
+
+//tampilke table.html
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		.ablee{
+			margin: auto;
+		}
+		.belakang{
+			background: linear-gradient(to bottom, black, lightgreen);
+		}
+		.container{
+			font-weight: bold;
+			color: white;
+			text-align: center;
+		}
+	</style>
+	<title>Tampilan Tabel</title>
+</head>
+<body class="belakang">
+<table width="200" border="1" class="ablee">
+	<tr>
+		<td width="100" class="container">Nama</td>
+		<td width="100" class="container">Lahir</td>
+		<td width="100" class="container">Ayah</td>
+		<td width="100" class="container">Ibu</td>
+		<td width="100" class="container">Nomor Hp</td>
+		<td width="100" class="container">Email</td>
+		<td width="100" class="container">Asal Sekolah</td>
+		<td width="100" class="container">Jurusan</td>
+		<td width="100" class="container">Prodi</td>
+		<td width="100" class="container">Motivasi</td>
+	</tr>
+	<?php
+	$fp = fopen("datapendaftar.txt", "rb");
+
+	while (!feof($fp)) {
+		$isiarray = fgets($fp);
+		$isinya = explode('  ', $isiarray);
+		echo "<tr><td height="119">$isinya[0]</td><td>$isinya[1]</td><td>$isinya[2]</td><td>$isinya[3]</td><td>$isinya[4]</td><td>$isinya[5]</td><td>$isinya[6]</td><td>$isinya[7]</td><td>$isinya[8]</td><td>$isinya[9]</td></tr>";
+	}
+	fclose($fp);
+	?>
+</table>
+</body>
+</html>
+
+
+//isi document txt
+Fajrul : Tarakan 24 06 2001 : Rijaluddin : Musdalifa : 081226400549 : fajrul@gmail.com : Pondok : Teknik Industri : Teknik Informatika : Pengen jadi terbaik 
