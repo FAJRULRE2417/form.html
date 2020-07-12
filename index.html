@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pendaftaran Calon Penghuni Asrama Putra UAD 2020</title>
+	<style type="text/css">
+		.container{
+			width: 700px;
+			height: 865px;
+			background-color: lavender;
+			margin: auto;
+		}
+		.container1{
+			background: linear-gradient(to right,lightblue, green)
+		}
+		.bawah{
+			width: 700px;
+			height: 25px;
+			background-color: black;
+		}
+		.footerr{
+			font-size: 10px;
+			color: white;
+			text-align: center;
+
+		}
+		.rata{
+			font-family: sans-serif;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body class="container1">
+<div class="container">
+	<form action="validasi.php" method="post">
+		<pre class="rata">
+		Nama lengkap		:<input type="text" name="nama" size="50" id="nama">
+		
+		<br>
+		lahir				:<input type="text" name="lahir" size="50" id="lahir"></pre>
+		
+		<br>
+		<pre class="rata">
+		Nama Ayah			:<input type="text" name="ayah" size="20" id="ayah">
+		<br>
+		Nama Ibu			:<input type="text" name="ibu" size="20" id="ibu">
+		
+		</pre><br>
+		<pre class="rata">
+		No Handphone wali	:<input type="text" name="nohape" size="12" id="nohape">
+		
+		<br>
+		Email				:<input type="Email" name="email" size="30" id="email">
+	
+		</pre><br>
+		<pre class="rata">
+		Pendidikan Terakhir 	:<select name="pendidikan" id="pendidikan">
+							<option value="SMA">SMA</option>
+							<option value="Pondok Pesantren">Pondok Pesantren</option>
+							<option value="Madrasah Aliyah">Madrasah Aliyah</option>
+							<option value="SMK">SMK</option>
+		</select>
+		
+		<br><br>
+		Jurusan Kuliah		:<input type="text" name="jurusan" size="50" id="jurusan">
+		
+		<br>
+		Program Study		:<input type="text" name="prodi" size="50" id="prodi">
+		
+		<br><br>
+		Motivasi Masuk 
+		Asrama				 :<textarea name="motivasi" id="motivasi"></textarea>
+		
+		</pre><br><br>
+		<input type="submit" name="kirim" value="Kirim">
+		<input type="reset" name="reset" value="Hapus">
+	</form>
+	<footer class="bawah">
+			<font class="footerr"><center>Created by @Muhammad Fajrul Falaq</center></font>
+	</footer>
+</div>
+</body>
+</html>
